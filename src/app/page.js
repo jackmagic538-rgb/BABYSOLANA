@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 // --- NAVBAR KOMPONENTE ---
 function Navbar() {
   // ⏳ Zielzeit (ANPASSEN!)
-  const launchDate = new Date("2026-06-20T18:00:00Z").getTime();
+  const launchDate = new Date("2026-06-18T14:00:00Z").getTime();
 
   const [timeLeft, setTimeLeft] = useState(launchDate - Date.now());
 
@@ -31,7 +31,7 @@ function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full grid grid-cols-3 items-center px-6 py-4 bg-black/40 backdrop-blur-md border-b border-white/10 z-50">
       {/* LEFT */}
-      <div className="font-bold tracking-widest justify-self-start flex items-center gap-4">
+      <div className="font-bold tracking-widest justify-self-start flex items-center gap-8">
         <span>$BABYSOL</span>
 
         {/* ⏳ NEW: Countdown */}
@@ -54,7 +54,7 @@ function Navbar() {
           href="#howtobuy"
           className="px-5 py-1 border border-white/30 transition hover:scale-105 inline-block"
         >
-          HowToBuy?
+          HowToBuy
         </a>
 
         <a
@@ -137,7 +137,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-16 mt-16 w-full">
-            <div className="w-[500px] h-[500px] border border-white/30 rounded-2xl overflow-hidden transition hover:scale-103">
+            <div className="w-[550px] h-[530px] border border-white/30 rounded-2xl overflow-hidden transition hover:scale-103">
               <img
                 src="/BabySol2.png"
                 className="w-full h-full object-cover"
@@ -146,13 +146,13 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col items-start gap-4 max-w-md">
-              <p className="text-gray-300">ABOUT:</p>
+              <p className="text-gray-300">ABOUT US:</p>
 
               <p className="text-gray-300 bg-white/5 p-4 rounded-xl border border-white/10 transition hover:scale-103">
-                Baby SOL isn't just a token—it's the cutest coin on the
+                Baby SOL isn't just a token — it's the cutest coin on the
                 blockchain. We're here to ride waves, break charts, and make
                 memes great again. Fueled by the Solana community, powered by
-                pure baby energy. HODL tight, the baby's about to run!
+                pure baby energy. HODL tight, the baby's about to run🚀
               </p>
 
               <div className="flex gap-5">
@@ -192,9 +192,9 @@ export default function Home() {
             <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-103">
               <h3 className="text-xl font-bold mb-2">Phase 2</h3>
               <p className="text-gray-400 text-sm">
-                • 100% Bonding curve progress () <br /> • Trending on
+                • 100% Bonding curve progress <br /> • Trending on
                 DEXScreeners <br /> • Riding waves, breaking charts, and making
-                memes great again
+                memes great again🔥
               </p>
             </div>
           </div>
@@ -215,14 +215,14 @@ export default function Home() {
             <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-103">
               <h3 className="text-xl font-bold mb-2">Get a Wallet</h3>
               <p className="text-gray-400 text-sm">
-                Download Phantom wallet to get started
+                Download Phantom wallet to get started.
               </p>
             </div>
 
             <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-103">
               <h3 className="text-xl font-bold mb-2">Buy SOL</h3>
               <p className="text-gray-400 text-sm">
-                Get your hands on some SOL from your favorite exchange
+                Get your hands on some SOL from your favorite exchange.
               </p>
             </div>
 
@@ -250,7 +250,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-10">
             <div>
               <p className="text-gray-300 mb-6 max-w-md">
-                Join Our Community!
+                Join the Baby SOL army!
               </p>
 
               <div className="flex gap-4">
