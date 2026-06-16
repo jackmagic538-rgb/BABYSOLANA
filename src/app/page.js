@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 // --- NAVBAR KOMPONENTE ---
 function Navbar() {
   // ⏳ Zielzeit (ANPASSEN!)
-  const launchDate = new Date("2026-06-18T14:00:00Z").getTime();
+  const launchDate = new Date("2026-06-24T13:00:00Z").getTime();
 
   const [timeLeft, setTimeLeft] = useState(launchDate - Date.now());
 
@@ -68,7 +68,7 @@ function Navbar() {
       {/* RIGHT SOCIAL BUTTONS */}
       <div className="flex gap-4 justify-self-end items-center">
         <a
-          href="https://x.com"
+          href="https://x.com/BabySolanaSOL1"
           target="_blank"
           rel="noopener noreferrer"
           className="transition hover:scale-105"
@@ -208,7 +208,7 @@ export default function Home() {
           className="scroll-mt-24 min-h-[30vh] flex flex-col justify-center"
         >
           <h2 className="text-4xl font-bold font-serif mb-6 text-cyan-400">
-            HOW TO BUY?
+            HOW TO BUY
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -255,7 +255,7 @@ export default function Home() {
 
               <div className="flex gap-4">
                 <a
-                  href="https://x.com"
+                  href="https://x.com/BabySolanaSOL1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 border border-white rounded-full transition hover:scale-103"
