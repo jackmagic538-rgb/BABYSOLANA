@@ -129,9 +129,9 @@ export default function Home() {
       <div className="pt-40 px-10 relative z-10 max-w-6xl mx-auto">
         {/* HERO */}
         <div className="min-h-[80vh] flex flex-col justify-center items-center">
-          <h1 className="text-7xl md:text-8xl font-extrabold text-center font-serif bg-gradient-to-r from-purple-400 via-fuchsia-500 to-cyan-400 bg-clip-text text-transparent">
-            BABY SOLANA
-          </h1>
+	  <h1 className="text-7xl md:text-8xl font-extrabold text-center font-serif bg-gradient-to-r from-purple-400 via-fuchsia-500 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-x">
+  	    BABY SOLANA
+	  </h1>
           <div className="mt-4 bg-white/5 border border-white/10 rounded-xl px-6 py-2 transition hover:scale-103">
             <p className="text-gray-300 text-center">Coming soon{dots}</p>
           </div>
@@ -139,7 +139,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-16 mt-16 w-full">
             <div className="w-[550px] h-[530px] border border-white/30 rounded-2xl overflow-hidden transition hover:scale-103">
               <img
-                src="/BabySol2.png"
+                src="/BABYSOL4.png"
                 className="w-full h-full object-cover"
                 alt="Baby Sol"
               />
@@ -277,7 +277,7 @@ export default function Home() {
             {/* Bildplatzhalter */}
             <div className="w-[300px] h-[250px] border border-white/30 rounded-2xl overflow-hidden bg-white/5 flex items-center justify-center text-gray-500 transition hover:scale-103">
               <img
-                src="/BABYSOL3.png"
+                src="/BABYSOL5.png"
                 alt="Community"
                 className="w-full h-full object-cover"
               />
