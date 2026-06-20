@@ -3,63 +3,32 @@ import { useEffect, useState } from "react";
 
 // --- NAVBAR KOMPONENTE ---
 function Navbar() {
-  // ⏳ Zielzeit (ANPASSEN!)
-  const launchDate = new Date("2026-06-24T13:00:00Z").getTime();
-
-  const [timeLeft, setTimeLeft] = useState(launchDate - Date.now());
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft(launchDate - Date.now());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [launchDate]);
-
-  const formatTime = (ms) => {
-    if (ms <= 0) return "LIVE";
-
-    const totalSeconds = Math.floor(ms / 1000);
-    const days = Math.floor(totalSeconds / 86400);
-    const hours = Math.floor((totalSeconds % 86400) / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
-
-    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  };
-
   return (
     <nav className="fixed top-0 left-0 w-full grid grid-cols-3 items-center px-6 py-4 bg-black/40 backdrop-blur-md border-b border-white/10 z-50">
       {/* LEFT */}
-      <div className="font-bold tracking-widest justify-self-start flex items-center gap-8">
+      <div className="font-extrabold tracking-widest justify-self-start flex items-center gap-8">
         <span>$BABYSOL</span>
-
-        {/* ⏳ NEW: Countdown */}
-        <div className="text-sm text-gray-300 flex items-center gap-2">
-          <span className="opacity-70">LAUNCH IN:</span>
-          <span className="text-white font-mono">{formatTime(timeLeft)}</span>
-        </div>
       </div>
 
       {/* CENTER NAV */}
       <div className="flex gap-5 justify-self-center">
         <a
           href="#roadmap"
-          className="px-5 py-1 border border-white/30 transition hover:scale-105 inline-block"
+          className="px-5 py-1 border border-white/30 font-bold transition hover:scale-105 inline-block"
         >
           Roadmap
         </a>
 
         <a
           href="#howtobuy"
-          className="px-5 py-1 border border-white/30 transition hover:scale-105 inline-block"
+          className="px-5 py-1 border border-white/30 font-bold transition hover:scale-105 inline-block"
         >
           HowToBuy
         </a>
 
         <a
           href="#community"
-          className="px-5 py-1 border border-white/30 transition hover:scale-105 inline-block"
+          className="px-5 py-1 border border-white/30 font-bold transition hover:scale-105 inline-block"
         >
           Community
         </a>
@@ -93,6 +62,31 @@ function Navbar() {
 export default function Home() {
   const [dots, setDots] = useState(".");
 
+  // Countdown Logik
+  const launchDate = new Date("2026-06-24T13:00:00Z").getTime();
+  const [timeLeft, setTimeLeft] = useState(launchDate - Date.now());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft(launchDate - Date.now());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [launchDate]);
+
+  const formatTime = (ms) => {
+    if (ms <= 0) return "LIVE";
+
+    const totalSeconds = Math.floor(ms / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  };
+
+  // Dots-Animation Logik
   useEffect(() => {
     const interval = setInterval(() => {
       setDots((prev) => (prev.length >= 3 ? "." : prev + "."));
@@ -127,28 +121,35 @@ export default function Home() {
 
       {/* ================= CONTENT ================= */}
       <div className="pt-40 px-10 relative z-10 max-w-6xl mx-auto">
-        {/* HERO */}
+        
+        {/* HERO SECTION */}
         <div className="min-h-[80vh] flex flex-col justify-center items-center">
-	  <h1 className="text-7xl md:text-8xl font-extrabold text-center font-serif bg-gradient-to-r from-purple-400 via-fuchsia-500 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-x">
-  	    BABY SOLANA
-	  </h1>
-          <div className="mt-4 bg-white/5 border border-white/10 rounded-xl px-6 py-2 transition hover:scale-103">
-            <p className="text-gray-300 text-center">Coming soon{dots}</p>
+          
+          {/* 1. Der Titel */}
+          <h1 className="text-7xl md:text-8xl font-extrabold tracking-wide text-center font-sans bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-x">
+            BABY SOLANA
+          </h1>
+
+          {/* 2. Der Countdown direkt darunter */}
+          <div className="mt-4 bg-white/5 border border-white/10 font-extrabold tracking-wider font-sans rounded-xl px-6 py-2 transition hover:scale-103 flex items-center gap-2">
+            <span className="text-gray-400 opacity-70">LAUNCH IN:</span>
+            <span className="text-white font-mono">{formatTime(timeLeft)}</span>
           </div>
 
+          {/* ABOUT CONTAINER */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-16 mt-16 w-full">
-            <div className="w-[550px] h-[530px] border border-white/30 rounded-2xl overflow-hidden transition hover:scale-103">
+            <div className="w-[575px] h-[533px] border border-white/30 rounded-2xl overflow-hidden transition hover:scale-105">
               <img
-                src="/BABYSOL4.png"
+                src="/BABYSOL6.png"
                 className="w-full h-full object-cover"
                 alt="Baby Sol"
               />
             </div>
 
-            <div className="flex flex-col items-start gap-4 max-w-md">
+            <div className="flex flex-col font-bold items-start gap-5 max-w-md">
               <p className="text-gray-300">ABOUT US:</p>
 
-              <p className="text-gray-300 bg-white/5 p-4 rounded-xl border border-white/10 transition hover:scale-103">
+              <p className="text-gray-400 bg-white/5 p-4 rounded-xl border border-white/10 transition hover:scale-103">
                 Baby SOL isn't just a token — it's the cutest coin on the
                 blockchain. We're here to ride waves, break charts, and make
                 memes great again. Fueled by the Solana community, powered by
@@ -156,11 +157,11 @@ export default function Home() {
               </p>
 
               <div className="flex gap-5">
-                <a className="px-4 py-2 border border-white rounded-full transition hover:scale-103 cursor-pointer">
+                <a className="px-4 py-2 border border-white font-extrabold tracking-wider font-sans rounded-full transition hover:scale-103 cursor-pointer">
                   BUY
                 </a>
 
-                <a className="px-4 py-2 border border-white rounded-full transition hover:scale-103 cursor-pointer">
+                <a className="px-4 py-2 border border-white font-extrabold tracking-wider font-sans rounded-full transition hover:scale-103 cursor-pointer">
                   CHART
                 </a>
               </div>
@@ -173,9 +174,9 @@ export default function Home() {
         {/* ROADMAP */}
         <section
           id="roadmap"
-          className="scroll-mt-24 min-h-[30vh] flex flex-col justify-center"
+          className="scroll-mt-24 min-h-[30vh] flex flex-col font-bold justify-center"
         >
-          <h2 className="text-4xl font-bold font-serif mb-6 text-fuchsia-400">
+          <h2 className="text-4xl font-extrabold tracking-wider font-sans mb-6 text-violet-600">
             ROADMAP
           </h2>
 
@@ -205,9 +206,9 @@ export default function Home() {
         {/* HOW TO BUY */}
         <section
           id="howtobuy"
-          className="scroll-mt-24 min-h-[30vh] flex flex-col justify-center"
+          className="scroll-mt-24 min-h-[30vh] flex flex-col font-bold justify-center"
         >
-          <h2 className="text-4xl font-bold font-serif mb-6 text-cyan-400">
+          <h2 className="text-4xl font-extrabold tracking-wider font-sans mb-6 text-fuchsia-500">
             HOW TO BUY
           </h2>
 
@@ -220,7 +221,7 @@ export default function Home() {
             </div>
 
             <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-103">
-              <h3 className="text-xl font-bold mb-2">Buy SOL</h3>
+              <h3 className="text-xl font-bold mb-2">Buy Solana</h3>
               <p className="text-gray-400 text-sm">
                 Get your hands on some SOL from your favorite exchange.
               </p>
@@ -241,9 +242,9 @@ export default function Home() {
         {/* COMMUNITY */}
         <section
           id="community"
-          className="scroll-mt-24 min-h-[30vh] flex flex-col justify-center pb-20"
+          className="scroll-mt-24 min-h-[30vh] flex flex-col font-extrabold font-sans justify-center pb-20"
         >
-          <h2 className="text-4xl font-bold font-serif mb-6 text-purple-400">
+          <h2 className="text-4xl font-extrabold tracking-wider font-sans mb-6 text-cyan-400">
             COMMUNITY
           </h2>
 
