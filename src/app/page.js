@@ -58,45 +58,10 @@ function Navbar() {
   );
 }
 
-// --- MAIN HOME KOMPONENTE ---
-export default function Home() {
-  const [dots, setDots] = useState(".");
-
-  // Countdown Logik
-  const launchDate = new Date("2026-06-24T13:00:00Z").getTime();
-  const [timeLeft, setTimeLeft] = useState(launchDate - Date.now());
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft(launchDate - Date.now());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [launchDate]);
-
-  const formatTime = (ms) => {
-    if (ms <= 0) return "LIVE";
-
-    const totalSeconds = Math.floor(ms / 1000);
-    const days = Math.floor(totalSeconds / 86400);
-    const hours = Math.floor((totalSeconds % 86400) / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
-
-    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  };
-
-  // Dots-Animation Logik
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDots((prev) => (prev.length >= 3 ? "." : prev + "."));
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, []);
-
+// ================= HAUPT-LAYOUT =================
+export default function Page() {
   return (
-    <main className="min-h-screen text-white bg-black relative overflow-hidden scroll-smooth">
+    <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
       {/* 🌌 Background */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-purple-900/20 to-transparent"></div>
 
@@ -116,7 +81,7 @@ export default function Home() {
         }}
       />
 
-      {/* Hier wird die reparierte Navbar gerendert */}
+      {/* Hier wird die Navbar gerendert */}
       <Navbar />
 
       {/* ================= CONTENT ================= */}
@@ -131,14 +96,13 @@ export default function Home() {
           </h1>
 
           {/* 2. Der Countdown direkt darunter */}
-          <div className="mt-4 bg-white/5 border border-white/10 font-extrabold tracking-wider font-sans rounded-xl px-6 py-2 transition hover:scale-103 flex items-center gap-2">
-            <span className="text-gray-400 opacity-70">LAUNCH IN:</span>
-            <span className="text-white font-mono">{formatTime(timeLeft)}</span>
+          <div className="mt-4 bg-white/5 border border-white/10 font-extrabold tracking-wider font-sans rounded-xl px-6 py-2 transition hover:scale-105 flex items-center gap-2">
+            CA:  CW8NbUaTwiarDGMNCHk8Jh9aXnUqXMSghHnpibGspump
           </div>
 
           {/* ABOUT CONTAINER */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-16 mt-16 w-full">
-            <div className="w-[575px] h-[533px] border border-white/30 rounded-2xl overflow-hidden transition hover:scale-105">
+            <div className="w-full max-w-[575px] aspect-[575/533] border border-white/30 rounded-2xl overflow-hidden transition hover:scale-105">
               <img
                 src="/BABYSOL6.png"
                 className="w-full h-full object-cover"
@@ -149,7 +113,7 @@ export default function Home() {
             <div className="flex flex-col font-bold items-start gap-5 max-w-md">
               <p className="text-gray-300">ABOUT US:</p>
 
-              <p className="text-gray-400 bg-white/5 p-4 rounded-xl border border-white/10 transition hover:scale-103">
+              <p className="text-gray-400 bg-white/5 p-4 rounded-xl border border-white/10 transition hover:scale-105">
                 Baby SOL isn't just a token — it's the cutest coin on the
                 blockchain. We're here to ride waves, break charts, and make
                 memes great again. Fueled by the Solana community, powered by
@@ -157,11 +121,21 @@ export default function Home() {
               </p>
 
               <div className="flex gap-5">
-                <a className="px-4 py-2 border border-white font-extrabold tracking-wider font-sans rounded-full transition hover:scale-103 cursor-pointer">
+                <a
+                  href="https://pump.fun/coin/CW8NbUaTwiarDGMNCHk8Jh9aXnUqXMSghHnpibGspump"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 border border-white font-extrabold tracking-wider font-sans rounded-full transition hover:scale-105 cursor-pointer block"
+                >
                   BUY
                 </a>
 
-                <a className="px-4 py-2 border border-white font-extrabold tracking-wider font-sans rounded-full transition hover:scale-103 cursor-pointer">
+                <a
+                  href="https://pump.fun/coin/CW8NbUaTwiarDGMNCHk8Jh9aXnUqXMSghHnpibGspump"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 border border-white font-extrabold tracking-wider font-sans rounded-full transition hover:scale-105 cursor-pointer block"
+                >
                   CHART
                 </a>
               </div>
@@ -181,19 +155,18 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-103">
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-105">
               <h3 className="text-xl font-bold mb-2">Phase 1</h3>
               <p className="text-gray-400 text-sm">
-                {" "}
-                • Website & Branding <br /> • Community Building (Telegram, X){" "}
-                <br /> • Launch on pump.fun{" "}
+                ✓ Website & Branding <br /> ✓ Community Building (Telegram, X){" "}
+                <br /> ✓ Launch on pump.fun{" "}
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-103">
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-105">
               <h3 className="text-xl font-bold mb-2">Phase 2</h3>
               <p className="text-gray-400 text-sm">
-                • 100% Bonding curve progress <br /> • Trending on
+                🠒 100% Bonding curve progress <br /> • Trending on
                 DEXScreeners <br /> • Riding waves, breaking charts, and making
                 memes great again🔥
               </p>
@@ -213,21 +186,21 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-103">
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-105">
               <h3 className="text-xl font-bold mb-2">Get a Wallet</h3>
               <p className="text-gray-400 text-sm">
                 Download Phantom wallet to get started.
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-103">
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-105">
               <h3 className="text-xl font-bold mb-2">Buy Solana</h3>
               <p className="text-gray-400 text-sm">
                 Get your hands on some SOL from your favorite exchange.
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-103">
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl transition hover:scale-105">
               <h3 className="text-xl font-bold mb-2">Swap</h3>
               <p className="text-gray-400 text-sm">
                 Use pump.fun to trade your SOL for our token and start the meme
@@ -259,7 +232,7 @@ export default function Home() {
                   href="https://x.com/BabySolanaSOL1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 border border-white rounded-full transition hover:scale-103"
+                  className="flex items-center gap-2 px-4 py-2 border border-white rounded-full transition hover:scale-105"
                 >
                   <img src="/TwitterLogo.png" className="w-5 h-5" alt="X" />
                 </a>
@@ -268,7 +241,7 @@ export default function Home() {
                   href="https://t.me/BABYSOL1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 border border-white rounded-full transition hover:scale-103"
+                  className="flex items-center gap-2 px-4 py-2 border border-white rounded-full transition hover:scale-105"
                 >
                   <img src="/TelegramLogo.png" className="w-5 h-5" alt="Telegram" />
                 </a>
@@ -276,7 +249,7 @@ export default function Home() {
             </div>
 
             {/* Bildplatzhalter */}
-            <div className="w-[300px] h-[250px] border border-white/30 rounded-2xl overflow-hidden bg-white/5 flex items-center justify-center text-gray-500 transition hover:scale-103">
+            <div className="w-[300px] h-[250px] border border-white/30 rounded-2xl overflow-hidden bg-white/5 flex items-center justify-center text-gray-500 transition hover:scale-105">
               <img
                 src="/BABYSOL5.png"
                 alt="Community"
@@ -285,7 +258,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
       </div>
-    </main>
+    </div>
   );
 }
